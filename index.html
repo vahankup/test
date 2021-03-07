@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>verification</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="form">
+            <form name="vahan">
+                <h1>JS Font Validation</h1>
+                <input type="text" name="nom" placeholder="Entrer votre nom" id="nom" onchange="maj()" required><br><br>
+                <input type="text" name="nombre" placeholder="Entrer un nombre" id="nombre" required><br><br>
+                <input type="text " name="mail " placeholder="Entrer votre mail " id="mail" required><br><br>
+                <input type="password" name="password" placeholder="Entrer votre mot de passe" id="password" onkeyup="passlen()" required>
+                <br>
+                <span id="para"></span><br><br>
+
+                <input type="date" name="date" placeholder="Entrer votre date de naissance" id="date" required><br><br>
+                <button type="submit" onclick="validNom();validNomb();validEmail();validDate();validPass()">SUBMIT</button><br>
+        </div>
+    </div>
+    <script>
+        function validNom() {
+            var nom = document.vahan.nom.value;
+            var letters = /^[A-Za-z]+$/;
+            if (nom.match(letters)) {
+                return true;
+            } else {
+                alert("Le nom doit contenir des lettres seulement");
+                return false;
+            }
+        }
+
+        function maj() {
+            var majj = document.getElementById("nom");
+            majj.value = majj.value.toUpperCase();
+        }
+
+
+        function validNomb() {
+            var nombre = document.getElementById("nombre").value;
+            if ((nombre < 20 || nombre > 200) && (nombre < 500 || nombre > 1000)) {
+                alert("Le nombre doit être compris entre 20 et 200 ou 500 et 1000");
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function validDate() {
+            var date = document.getElementById("date").value;
+            var newdate = new Date(date);
+            var currentdate = new Date();
+            if (currentdate < newdate) {
+                alert("La date ne doit pas exceder la date d'aujourd'hui");
+                return false;
+            } else {
+                return true;
+            }
+
+        }
+
+        function validEmail() {
+            var mail = document.getElementById("mail").value;
+            if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
+                return (true);
+            } else {
+                alert("You have entered an invalid email address!");
+                return (false);
+            }
+        }
+
+        function validPass() {
+            var password = document.getElementById("password").value;
+            var letterNumber = /^[0-9a-zA-Z]+$/;
+            if ((password.match(letterNumber))) {
+                return true;
+            } else {
+                alert("Le mot de passe doit contenir des lettres et des chiffres seulement");
+                return false;
+            }
+        }
+
+        function passlen() {
+            var password = document.getElementById("password").value;
+            if (password.length < 8) {
+                document.getElementById("para").innerHTML = "faible";
+                document.getElementById("para").style.color = "orange";
+
+            } else if (password.length < 10) {
+                document.getElementById("para").innerHTML = "suffisant";
+                document.getElementById("para").style.color = "red";
+
+            } else if (password.length == 10) {
+                document.getElementById("para").innerHTML = "parfait";
+                document.getElementById("para").style.color = "green";
+
+            } else if (password.length > 10) {
+                document.getElementById("para").innerHTML = "parfait";
+                document.getElementById("para").style.color = "green";
+            }
+        }
+    </script>
+</body>
+
+</html>
