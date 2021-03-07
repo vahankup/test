@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>form</title>
+    <script src="https://kit.fontawesome.com/c757fcd85e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style/style-form.css">
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
+</head>
+
+<body>
+    <div class="nav">
+        <div class="topnav" id="myTopnav">
+            <a href="index.html" class="active"><i class="fas fa-paw"></i> LEB DOGS</a
+        >
+        <a href="breeds.html">Breeds</a>
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+    </div>
+    <form class="login-form" action="info_pet.php" method="POST">
+        <div class="title">
+            <p style="color: white; text-align: center">LEB DOGS</p>
+        </div>
+        <div class="login-form__content">
+            <input class="login-form__input" type="text" name="prenom" placeholder="prenom" />
+            <input class="login-form__input" type="text" name="mail" placeholder="mail" />
+            <input class="login-form__input" type="text" name="Petname" placeholder="Dog name" />
+            <input class="login-form__input" type="text" name="Petbreed" placeholder="Dog breed" />
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+
+</html>
